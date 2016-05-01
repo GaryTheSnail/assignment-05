@@ -1,0 +1,32 @@
+/* ----------------------------------------------------------------------------
+ * Copyright &copy; 2016 Ben Blazak <bblazak@fullerton.edu>
+ * Released under the [MIT License] (http://opensource.org/licenses/MIT)
+ * ------------------------------------------------------------------------- */
+
+#include <iostream>
+#include <vector>
+#include "function.h"
+
+void draw(const std::vector<Shape*> & v) {}                       //draw function
+
+int main() {
+    int const FRAME_NUMBERS = 40;
+    
+    int const SLEEP_TIME = 50;
+    
+    for (int i = 0; i < FRAME_NUMBERS; i++) {
+        
+        Rectangle r;
+        Square s;
+        Ellipse e;
+        Circle c;
+    
+        std::vector<Shape*> shapes = {&r, &s, &e, &c};                      //shapes vector
+        
+        draw(shapes);                                               //draw function
+        
+        std::this_thread::sleep_for(std::chrono::milliseconds(SLEEP_TIME));
+    }
+
+    return 0;
+}
